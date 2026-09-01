@@ -1,11 +1,19 @@
 name: Backend Continuous Integration
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "starter/backend/**"
+      - ".github/workflows/backend-ci.yaml"
+
   pull_request:
     branches:
       - main
     paths:
       - "starter/backend/**"
+      - ".github/workflows/backend-ci.yaml"
 
   workflow_dispatch:
 
@@ -74,4 +82,4 @@ jobs:
 
       - name: Build Docker image
         working-directory: starter/backend
-        run: docker build -t mp-backend:latest ./starter/backend
+        run: docker build -t mp-backend:latest .
