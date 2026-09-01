@@ -1,19 +1,11 @@
 name: Backend Continuous Integration
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "starter/backend/**"
-      - ".github/workflows/backend-ci.yaml"
-
   pull_request:
     branches:
       - main
     paths:
       - "starter/backend/**"
-      - ".github/workflows/backend-ci.yaml"
 
   workflow_dispatch:
 
