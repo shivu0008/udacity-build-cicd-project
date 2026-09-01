@@ -74,4 +74,4 @@ jobs:
 
       - name: Build Docker image
         working-directory: starter/backend
-        run: docker build -t mp-backend:latest .git branch
+        run: docker build -t mp-backend:latest ./starter/backend
