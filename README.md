@@ -1,3 +1,98 @@
+# Movie Picture Pipeline - CI/CD Project
+
+## Project Overview
+
+This project implements Continuous Integration and Continuous Deployment (CI/CD) pipelines for a Movie Picture web application.
+
+The application consists of:
+
+- Frontend: React application
+- Backend: Python Flask API
+- CI/CD: GitHub Actions
+- Container Registry: Amazon ECR
+- Kubernetes Platform: Amazon EKS
+- Infrastructure: AWS
+
+---
+
+## CI/CD Pipelines
+
+The project includes four GitHub Actions workflows:
+
+### 1. Frontend Continuous Integration
+
+The frontend CI pipeline performs:
+
+- Linting
+- Testing
+- Docker image build
+
+The workflow runs on pull requests to the `main` branch and can also be triggered manually.
+
+### 2. Backend Continuous Integration
+
+The backend CI pipeline performs:
+
+- Linting
+- Testing
+- Docker image build
+
+The workflow runs on pull requests to the `main` branch and can also be triggered manually.
+
+### 3. Frontend Continuous Deployment
+
+The frontend CD pipeline performs:
+
+1. Linting
+2. Testing
+3. Docker image build
+4. Push Docker image to Amazon ECR
+5. Deploy the application to Amazon EKS
+
+The Docker image is tagged using the GitHub commit SHA.
+
+### 4. Backend Continuous Deployment
+
+The backend CD pipeline performs:
+
+1. Linting
+2. Testing
+3. Docker image build
+4. Push Docker image to Amazon ECR
+5. Deploy the application to Amazon EKS
+
+The Docker image is tagged using the GitHub commit SHA.
+
+---
+
+## Technologies Used
+
+- GitHub Actions
+- Docker
+- Amazon Web Services (AWS)
+- Amazon ECR
+- Amazon EKS
+- Kubernetes
+- React
+- Python
+- Flask
+- Pipenv
+- npm
+
+---
+
+## Kubernetes Deployment
+
+Both applications were successfully deployed to the Amazon EKS cluster.
+
+### Deployment Status
+
+```text
+NAME       READY   UP-TO-DATE   AVAILABLE
+backend    1/1     1            1
+frontend   1/1     1            1
+
+
 # Movie Picture Pipeline
 
 You've been brought on as the DevOps resource for a development team that manages a web application that is a catalog of Movie Picture movies. They're in dire need of automating their development workflows in hopes of accelerating their release cycle. They'd like to use Github Actions to automate testing, building and deploying their applications to an existing Kubernetes cluster.

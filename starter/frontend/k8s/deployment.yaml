@@ -4,18 +4,21 @@ metadata:
   name: frontend
   labels:
     app: frontend
+
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: frontend
+
   template:
     metadata:
       labels:
         app: frontend
+
     spec:
       containers:
         - name: frontend
-          image: frontend
+          image: 260129976115.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
           ports:
             - containerPort: 3000

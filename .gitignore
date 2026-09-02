@@ -1,0 +1,16 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Environment files
+.env
+.env.*
+
+# Terraform generated files
+setup/terraform/.terraform/
+
+# Kubernetes local backups
+aws-auth.yaml
+aws-auth-backup.yaml
