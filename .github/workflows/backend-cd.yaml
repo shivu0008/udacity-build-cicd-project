@@ -35,7 +35,6 @@ jobs:
         working-directory: starter/backend
         run: pipenv run lint
 
-
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -60,7 +59,6 @@ jobs:
         working-directory: starter/backend
         run: pipenv run test
 
-
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
@@ -78,9 +76,9 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_REGION }}
-      
-- name: Verify AWS identity
-  run: aws sts get-caller-identity
+
+      - name: Verify AWS identity
+        run: aws sts get-caller-identity
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -110,6 +108,8 @@ jobs:
         working-directory: starter/backend
         run: |
           kubectl apply -k k8s/
+
           kubectl set image deployment/backend \
             backend=${{ vars.ECR_BACKEND }}:${{ github.sha }}
+
           kubectl rollout status deployment/backend
